@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_21_181908) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_21_215702) do
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "username", null: false
@@ -34,8 +34,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_21_181908) do
   create_table "products", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "description"
-    t.decimal "price", precision: 10, null: false
-    t.decimal "special_price", precision: 10
+    t.decimal "price", precision: 10, scale: 2, null: false
+    t.decimal "special_price", precision: 10, scale: 2
     t.integer "stock", default: 0
     t.boolean "allow_backorder", default: false
     t.boolean "is_on_special", default: false

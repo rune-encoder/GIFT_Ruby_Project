@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   # Product belongs to one category
+  # If a product is deleted, the category is not deleted
   belongs_to :category, optional: true
 
   validates :name, :price, presence: true
