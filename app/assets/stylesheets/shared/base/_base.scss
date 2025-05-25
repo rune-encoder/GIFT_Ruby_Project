@@ -1,0 +1,20 @@
+// BASE UTILITIES STYLES
+button,
+input[type="submit"],
+input[type="reset"] {
+  background: none;
+  border: none;
+  user-select: none;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+  outline: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+// BASE LINK STYLES
+a {
+  text-decoration: none;
+  color: inherit;
+}

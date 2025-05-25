@@ -1,0 +1,121 @@
+$listings-row-height: rem(120px);
+$listings-row-width: 100%;
+
+// ==============================
+// LIST: CONTAINER
+// ==============================
+// Container for all lists. (Products, Categories)
+.list {
+  @include apply-font-family("roboto-condensed");
+
+  z-index: 0;
+}
+
+// ==============================
+// LIST: ROW (INDIVIDUAL)
+// ==============================
+// Note: NOT to be used with Embla Carousel.
+// Usage: Used for constructing a new row with a static grid layout.
+// Important: Only for row components that require a grid layout.
+// Important: Ensure the use of --(modifier) and include a property of grid-template-columns to define the layout.
+// Example: .item-row--category { grid-template-columns: 60% 20% 20%; }
+[class^="item-row"] {
+  display: grid;
+  height: $listings-row-height;
+  width: $listings-row-width;
+  background: var(--shade-1);
+  transition: all 0.3s ease-out;
+  z-index: 0;
+
+  &:nth-child(odd) {
+    background-color: var(--shade-2);
+  }
+
+  // LIST: ROW (HOVER EFFECT)
+  &:hover,
+  &:focus {
+    background-color: var(--shade-3);
+  }
+}
+
+// Note: DO NOT use with a static grid. Used with Embla Carousel.
+// Note: This attribute selector carries over styles from the `.embla` attribute selector in `carousel.scss`.
+// Usage: Used for constructing a new row with Embla Carousel.
+// Important: Ensure the use of --(modifier) to expand the styles for the specific item.
+[class^="embla__item-row"] {
+  height: $listings-row-height;
+  width: $listings-row-width;
+  background: var(--shade-1);
+  transition: all 0.3s ease-out;
+  z-index: 0;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  &:nth-child(odd) {
+    background-color: var(--shade-2);
+  }
+
+  &:hover,
+  &:focus {
+    background-color: var(--shade-3);
+  }
+}
+
+// ==============================
+// LIST: CELLS (INDIVIDUAL)
+// ==============================
+// Usage: Used to specify a (individual) cell in a row.
+// Use with the `.item-row` class to specify the cells in the row
+// Applies spacing to the cell.
+.item-cell {
+  @include apply-space("padding", -5, "y");
+  @include apply-space("padding", -5, "x");
+}
+
+// Usage: If content within a cell contains more than one item...
+// or more than one group `.item-group`...
+// Use to wrap content within a cell and provide spacing between the items to separate them.
+.item-wrapper {
+  @include apply-flex(column, space-between, start);
+
+  height: 100%;
+}
+
+// ==============================
+// LIST: UTILITIES
+// ==============================
+// Used to specify a label for a item in a cell.
+// Usage: Item label must have a Icon and Name.
+// Applies style, layout and typography of the icon and name.
+.item-label {
+  @include apply-flex(row, start, center);
+  @include apply-space("gap", -15);
+  @include set-typography("normal", -1, $base-line-height);
+
+  color: var(--shade-13);
+}
+
+// Used to specify a value of a item in a cell.
+// Applies padding to the left of the value for indentation.
+// Important: Ensure the use of --(modifier) to expand the styles for the specific item.
+// Example: .item-value--subtle { color: var(--shade-13); }
+[class^="item-value"] {
+  @include apply-space("padding-left", -10);
+
+  @include respond-to("sm") {
+    @include set-typography("normal", 0, $compact-line-height);
+  }
+}
+
+// Expands on the syles from the `.item-value` attribute selector.
+.item-value {
+  // Subtle visual for the value.
+  &--subtle {
+    @include set-typography("normal", -1, $base-line-height);
+
+    color: var(--shade-13);
+  }
+}

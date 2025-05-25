@@ -1,0 +1,47 @@
+<% is_dropdown_open = true %> 
+<% is_dark_mode = true %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= content_for(:title) || "Admin Portal" %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <%# ! REVISIT ===========================================================     !!! %>
+    <%# <meta name="apple-mobile-web-app-capable" content="yes"> %>
+    <%# <meta name="mobile-web-app-capable" content="yes"> %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+
+    <%# ! REVISIT ===========================================================     !!! %>
+    <%# <link rel="icon" href="/icon.png" type="image/png"> %>
+    <%# <link rel="icon" href="/icon.svg" type="image/svg+xml"> %>
+    <%# <link rel="apple-touch-icon" href="/icon.png"> %>
+
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+    <%# ! REVISIT ===========================================================     !!! %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  </head>
+  <body>
+    <div class="dark" id="root">
+    <% if current_admin %>
+      <div class="content">
+        <%= render "admin/shared/header/main" %>
+        <div class="content__inner">
+          <%= render "admin/shared/sidebar" %>
+          <div class="content__main">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    <% else %> 
+      <%= yield %> 
+    <% end %>
+    </div>
+  </body>
+</html>

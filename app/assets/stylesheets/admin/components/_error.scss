@@ -1,0 +1,78 @@
+// VARIABLES: DIMENSIONS FOR THE ERROR WINDOW
+$error__window--height: rem(300px);
+$error__window--width: rem(720px);
+
+// ==============================
+// ERROR WINDOW SECTION
+// ==============================
+// SPACE AROUND THE ERROR WINDOW: (To position the error window as a modal)
+.error__window--wrapper {
+  @include apply-position(fixed, $top: 50%, $left: 50%);
+  @include apply-flex(row, center, center);
+
+  transform: translate(-50%, -75%);
+  z-index: 5;
+}
+
+// ERROR WINDOW
+.error__window {
+  @extend %window--layout;
+  @include apply-box-shadow("always-dark", 10);
+  @include apply-gradient("err-window-dark", "err-window-light");
+  @include apply-border("danger", $border-radius-md);
+
+  max-width: $error__window--width;
+  height: $error__window--height;
+}
+
+// ==============================
+// ERROR TAB SECTION
+// ==============================
+// TAB: (Window Title Bar)
+.error__window-tab {
+  @extend %window-tab--layout;
+}
+
+// TAB: CLOSE BUTTON
+.error__window-tab button {
+  @extend %window-tab__button--layout;
+  @include apply-border("danger", $border-radius-sm);
+
+  &:hover {
+    @include apply-gradient("err-btn-dark", "err-btn-light", to bottom left);
+
+    color: var(--selection);
+  }
+}
+
+// ==============================
+// ERROR WINDOW BODY SECTION
+// ==============================
+// BODY: Main content area within the error window.
+.error__window-body {
+  @include apply-space("margin-top", -5);
+  @include apply-gradient("err-content-dark", "shade-3", to bottom left);
+  @include apply-border("err-content-light", $border-radius-sm);
+
+  // Error Message Content Layout
+  @include apply-flex(column, center, center);
+  @include apply-space("gap", -10);
+  @include apply-font-family("roboto-condensed");
+
+  flex-grow: 1; // Expand to fill the remaining space
+  overflow-y: auto;
+
+  // <===== ERROR WINDOW CONTENT SECTION =====>
+  // Error Message Icon
+  svg {
+    @include set-typography("normal", 5, $compact-line-height);
+  }
+
+  // Error Message Text
+  p {
+    @include set-typography("normal", 2, $compact-line-height);
+    @include apply-text-shadow("err-window-dark");
+
+    text-align: center;
+  }
+}

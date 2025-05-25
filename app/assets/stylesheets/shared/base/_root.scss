@@ -1,0 +1,27 @@
+:root {
+  @include apply-theme-colors($light-theme); // Light Mode Theme Colors
+  @include apply-font-family("inter");
+  @include set-typography("normal", 0, $base-line-height);
+
+  // color-scheme: light dark;
+
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+}
+
+
+#root {
+  display: flex;
+  flex-grow: 1; // Expand to fill available space
+
+  // max-width: 100%;
+  // min-height: calc(100 * var(--vh));
+
+  min-height: 100vh;
+  width: 100vw;
+  
+  color: var(--dark);
+  background: var(--shade-3);
+}

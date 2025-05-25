@@ -1,0 +1,12 @@
+<nav class="mini-navbar">
+  <section class="mini-navbar__section">
+    <span class="header__username">
+      <%= current_admin.username %>
+    </span>
+    <span class="header__permission"> owner </span>
+  </section>
+  <i class="fa-solid fa-circle-user mini-navbar__user-icon"></i>
+
+  <%#  <======= DROPDOWN MENU CONTAINER =======>  %>
+  <%= yield if block_given? %>
+</nav>

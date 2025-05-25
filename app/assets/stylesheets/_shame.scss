@@ -1,0 +1,38 @@
+// ! Revisit
+.header__logo {
+  @include respond-to("xxl") {
+    color: rgba(128, 0, 128, 0.493);
+  }
+
+  @include respond-to("xl") {
+    color: rgba(128, 128, 128, 0.527);
+  }
+
+  @include respond-to("lg") {
+    color: rgba(0, 128, 0, 0.452);
+  }
+
+  @include respond-to("md") {
+    color: rgba(0, 0, 255, 0.507);
+  }
+
+  @include respond-to("sm") {
+    color: rgba(197, 178, 9, 0.473);
+  }
+
+  @include respond-to("xs") {
+    color: rgba(255, 0, 106, 0.466);
+  }
+}
+
+.rbg {
+  background-color: rgb(151, 80, 80);
+}
+
+.tbg {
+  background-color: rgb(22, 113, 141);
+}
+
+.cbg {
+  border: solid 1px rgb(6, 184, 21);
+}

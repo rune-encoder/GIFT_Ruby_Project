@@ -1,0 +1,25 @@
+<div class="login__section--wrapper">
+  <section class="login__section">
+    <h3 class="login__header">Admin Login</h3>
+
+    <div class="login__form-group">
+      <span class="login__welcome-text">Welcome. Please login...</span>
+
+      <%= form_with url: admin_login_path, method: :post, local: true do |form|
+      %>
+      <div class="login__form-section">
+        <%= form.label :username %> <%= form.text_field :username, placeholder:
+        "Enter username...", required: true %>
+      </div>
+
+      <div class="login__form-section">
+        <%= form.label :password %> <%= form.password_field :password,
+        placeholder: "Enter password...", required: true %>
+      </div>
+
+      <%= form.submit "Login", class: "login__button" %> <% end %>
+    </div>
+
+    <span class="login__footer">Website by Christian Palacios</span>
+  </section>
+</div>

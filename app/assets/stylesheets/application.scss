@@ -1,0 +1,128 @@
+@charset 'utf-8';
+@use "sass:map";
+@use "sass:list";
+@use "sass:string";
+@use "sass:math";
+@use "sass:meta";
+
+@import "./shared/abstracts/_functions";
+@import "./shared/abstracts/_variables";
+@import "./shared/abstracts/_mixins";
+@import "./shared/abstracts/_placeholders";
+
+@import "./shared/vendor/_google-fonts";
+@import "./shared/vendor/_bootstrap/index.scss";
+
+@import "./shared/base/_reset";
+@import "./shared/base/_root";
+@import "./shared/base/_base";
+@import "./shared/base/_typography";
+
+@import "./shared/components/_scrollbar";
+@import "./shared/components/_carousel";
+
+@import "./admin/pages/_login";
+@import "./admin/layout/_header";
+@import "./admin/layout/_sidebar";
+@import "./admin/layout/_toolbar";
+
+@import "./admin/components/_error";
+@import "./admin/components/_action-buttons";
+
+@import "./admin/components/_list";
+@import "./admin/components/_control-item";
+
+@import "./admin/layout/_admin-layout";
+
+@import "./admin/pages/listings/products/_product-row";
+@import "./admin/pages/listings/products/_image-preview";
+@import "./admin/pages/listings/products/_image-carousel";
+
+@import "./admin/pages/listings/categories/_category-row";
+@import "./admin/pages/listings/categories/_create-category";
+
+@import "./admin/pages/admins/_admin-row";
+
+@import "./_shame";
+
+// !Revisit DELETE OR MOVE
+// DARK THEME COLORS
+.dark {
+  @include apply-theme-colors($dark-theme);
+}
+
+/* ACTIVE NAV LINK */
+.active {
+  cursor: not-allowed;
+  pointer-events: none;
+  color: var(--accent);
+}
+
+/* DISABLED BUTTON, TAB, OR SELECTION */
+.disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+/* GLASS EFFECT */
+.frost {
+  /* From https://css.glass */
+  background: var(--opacity-medium);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgb(255 255 255 / 8%);
+}
+
+/* FLEX-GRID LAYOUT */
+// .flex-grid {
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: space-around;
+// }
+
+// .col {
+//   box-sizing: border-box;
+// }
+
+/* DEFAULT PARAGRAPH SIZE */
+// p {
+//   filter: drop-shadow(5px 3px 10px var(--opacity-medium));
+// }
+
+// @mixin make-row($gutter: 0) {
+//   display: flex;
+//   flex-wrap: wrap;
+//   margin-left: calc(-1 * #{$gutter});
+//   margin-right: calc(-1 * #{$gutter});
+// }
+
+// @mixin make-col($size, $columns: 12, $gutter: 0) {
+//   flex: 0 0 math.percentage($size / $columns);
+//   max-width: math.percentage($size / $columns);
+//   padding-left: #{$gutter};
+//   padding-right: #{$gutter};
+// }
+
+// .row {
+//   @include make-row(15px); // Set your gutter width here
+// }
+
+// .col {
+//   @include make-col(1, 12, 15px); // Adjust size and total columns as needed
+// }
+
+// .content__main {
+//   height: 100vh;
+//   margin: 0;
+//   background-size: cover;
+//   background-image:
+//     radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1), rgba(255,255,255,0.1), transparent 50%),
+//     radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1), rgba(255,255,255,0.1), transparent 50%),
+//     radial-gradient(circle at 60% 80%, rgba(255,255,255,0.1), rgba(255,255,255,0.1), transparent 50%),
+//     linear-gradient(to right, #3a6186, #89253e);
+// background-image:
+// radial-gradient(circle at 50% 50%, var(--opacity-shade-14), var(--opacity-shade-14), transparent 50%),
+// radial-gradient(circle at 30% 30%, var(--opacity-shade-14), var(--opacity-shade-14), transparent 50%),
+// radial-gradient(circle at 60% 80%, var(--opacity-shade-14), var(--opacity-shade-14), transparent 50%),
+// linear-gradient(to right, var(--shade-5), var(--shade-8));
+// }

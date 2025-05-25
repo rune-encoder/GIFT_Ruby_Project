@@ -1,0 +1,17 @@
+<!-- app/views/admin/shared/_sidebar.html.erb -->
+<aside class="sidebar__aside">
+  <% active_menu = @active_menu || "home"%>
+
+  <% sidebar_buttons.each do |btn| %>
+    <% is_disabled = (btn[:disables]&.include?(active_menu) || active_menu == btn[:menu]) %>
+
+    <button
+      class="sidebar__buttons <%= 'disabled' if is_disabled %>"
+      onclick="changeMenuDisplay('<%= btn[:menu] %>')"
+    >
+      <i class="fa-solid fa-<%= btn[:icon] %> sidebar__icon"></i>
+      <span class="sidebar__text"><%= btn[:text] %></span>
+    </button>
+  <% end %>
+</aside>
+

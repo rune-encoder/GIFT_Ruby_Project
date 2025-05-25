@@ -1,0 +1,20 @@
+{
+    "files.exclude": {
+        ".github": true,
+        ".kamal": true,
+        // "bin": true,
+        "tmp": true,
+        "log": true,
+        "script": true,
+        "storage": true,
+        "test": true,
+        "vendor": true,
+        ".dockerignore": true,
+        ".gitattributes": true,
+        ".gitignore": true,
+        ".rubocop.yml": true,
+        // ".ruby-version": true,
+        "Dockerfile": true
+    },
+    "explorerExclude.backup": {}
+}
