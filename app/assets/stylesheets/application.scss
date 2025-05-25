@@ -58,6 +58,10 @@
   color: var(--accent);
 }
 
+.hidden {
+  display: none;
+}
+
 /* DISABLED BUTTON, TAB, OR SELECTION */
 .disabled {
   cursor: not-allowed;

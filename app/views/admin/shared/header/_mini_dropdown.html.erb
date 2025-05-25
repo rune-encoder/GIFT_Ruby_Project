@@ -1,41 +1,39 @@
-<% is_dropdown_open = true %>
-<% is_dark_mode = true %>
-
 <%# <=======DROPDOWN MENU CONTAINER=======> %>
-<div class="dropdown-menu">
+<div 
+  data-controller="dropdown theme" 
+  data-action="theme:changed->dropdown#updateTheme" 
+  class="dropdown-menu"
+>
+
   <%# <=======ICON: OPEN AND CLOSE MENU=======> %> 
-  <% if is_dropdown_open %>
-    <button class="mini-navbar__button">
-      <i class="fa-solid fa-chevron-up"></i>
+    <button data-action="dropdown#toggle" class="mini-navbar__button">
+      <i data-dropdown-target="dropdownToggleIcon" class="fa-solid"></i>
     </button>
-  <% else %>
-    <button class="mini-navbar__button">
-      <i class="fa-solid fa-chevron-down"></i>
-    </button>
-  <% end %> 
+
   <%# <=======DROPDOWN MENU CONTENT=======> %> 
-  <% if is_dropdown_open %>
-    <menu class="dropdown-menu__section">
-      <button class="dropdown-menu__button" type="button">
-        <% if is_dark_mode %>
-        <i class="fa-solid fa-sun"></i> Light Mode <% else %>
-        <i class="fa-solid fa-moon"></i> Dark Mode <% end %>
+  <menu data-dropdown-target="dropdownMenu" class="dropdown-menu__section">
+    <button 
+      class="dropdown-menu__button" 
+      type="button"
+      data-action="click->theme#toggle"
+
+    >
+      <i data-dropdown-target="themeIcon" class="fa-solid"></i> Light Mode
+    </button>
+
+    <form
+      action="<%= admin_logout_path %>"
+      method="post"
+      style="display: inline"
+    >
+      <input type="hidden" name="_method" value="delete" />
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+      <button type="submit" class="dropdown-menu__button">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
       </button>
+    </form>
 
-      <form
-        action="<%= admin_logout_path %>"
-        method="post"
-        style="display: inline"
-      >
-        <input type="hidden" name="_method" value="delete" />
-        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-
-        <button type="submit" class="dropdown-menu__button">
-          <i class="fa-solid fa-right-from-bracket"></i> Logout
-        </button>
-      </form>
-
-      <span class="header__text--subtle"> Build Version v1.0.0 beta </span>
-    </menu>
-  <% end %>
+    <span class="header__text--subtle"> Build Version v1.0.0 beta </span>
+  </menu>
 </div>
